@@ -29,7 +29,7 @@ abstract class Consul
 	 * @param mixed $data
 	 * @return ResponseInterface
 	 */
-	public function request($path, $method, mixed $data = []): ResponseInterface
+	protected function request($path, $method, mixed $data = []): ResponseInterface
 	{
 		$client = new Client($this->host, $this->port);
 		$client->withConnectTimeout(60)
