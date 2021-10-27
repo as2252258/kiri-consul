@@ -4,6 +4,7 @@ namespace Kiri\Consul;
 
 use Psr\Http\Message\ResponseInterface;
 
+
 class Health extends Consul
 {
 
