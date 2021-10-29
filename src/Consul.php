@@ -49,9 +49,9 @@ abstract class Consul
 			->withTimeout(60);
 		return match ($method) {
 			self::GET => $client->get($path, $data),
-			self::POST => $client->post($path, $data),
-			self::PUT => $client->put($path, $data),
-			self::DELETE => $client->delete($path, $data),
+			self::POST => $client->post($path, json_encode($data)),
+			self::PUT => $client->put($path, json_encode($data)),
+			self::DELETE => $client->delete($path, json_encode($data)),
 		};
 	}
 
