@@ -5,6 +5,7 @@ namespace Kiri\Consul;
 use Http\Client\Client;
 use Http\Message\Stream;
 use Kiri\Abstracts\Config;
+use Kiri\Exception\ConfigException;
 use Psr\Http\Message\ResponseInterface;
 
 abstract class Consul
@@ -25,9 +26,12 @@ abstract class Consul
 	const POST = 'post';
 
 
+	/**
+	 * @throws ConfigException
+	 */
 	public function init()
 	{
-		$config = Config::get('rpc.registry', null, true);
+		$config = Config::get('consul', null, true);
 
 		$this->host = $config['address']['host'];
 		$this->port = $config['address']['port'];
