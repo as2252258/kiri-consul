@@ -3,6 +3,7 @@
 namespace Kiri\Consul;
 
 use Http\Client\Client;
+use Kiri\Abstracts\Config;
 use Psr\Http\Message\ResponseInterface;
 
 abstract class Consul
@@ -21,6 +22,17 @@ abstract class Consul
 	const PUT = 'put';
 	const DELETE = 'delete';
 	const POST = 'post';
+
+
+	public function init()
+	{
+		$config = Config::get('rpc.registry', null, true);
+
+		$this->host = $config['address']['host'];
+		$this->port = $config['address']['port'];
+
+		$this->token = $config['token'];
+	}
 
 
 	/**
