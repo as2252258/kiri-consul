@@ -3,6 +3,7 @@
 namespace Kiri\Consul;
 
 use Http\Client\Client;
+use Http\Message\Stream;
 use Kiri\Abstracts\Config;
 use Psr\Http\Message\ResponseInterface;
 
@@ -45,13 +46,14 @@ abstract class Consul
 	{
 		$client = new Client($this->host, $this->port);
 		$client->withConnectTimeout(60)
-			->withHeader(['Content-Type' => 'application/json'])
-			->withTimeout(60);
+			->withContentType('application/json')
+			->withTimeout(60)
+			->withBody(new Stream(json_encode($data)));
 		return match ($method) {
-			self::GET => $client->get($path, $data),
-			self::POST => $client->post($path, $data),
-			self::PUT => $client->put($path, $data),
-			self::DELETE => $client->delete($path, $data),
+			self::GET => $client->get($path),
+			self::POST => $client->post($path),
+			self::PUT => $client->put($path),
+			self::DELETE => $client->delete($path),
 		};
 	}
 
