@@ -47,6 +47,7 @@ abstract class Consul
 		$client = new Client($this->host, $this->port);
 		$client->withConnectTimeout(60)
 			->withContentType('application/json')
+			->withHeaders(['X-Consul-Token' => $this->token])
 			->withTimeout(60)
 			->withBody(new Stream(json_encode($data)));
 		return match ($method) {
