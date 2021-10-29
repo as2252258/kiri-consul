@@ -2,8 +2,8 @@
 
 namespace Kiri\Consul\Agent;
 
-use Psr\Http\Message\ResponseInterface;
 use Kiri\Consul\Consul;
+use Psr\Http\Message\ResponseInterface;
 
 class Service extends Consul
 {
@@ -54,12 +54,13 @@ class Service extends Consul
 
 	/**
 	 * @param array $service_id
+	 * @param bool $replace_existing_checks
 	 * @return ResponseInterface
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function register(array $service_id): ResponseInterface
+	public function register(array $service_id, bool $replace_existing_checks = true): ResponseInterface
 	{
-		return $this->request('/v1/agent/service/register', self::PUT, $service_id);
+		return $this->request('/v1/agent/service/register?replace-existing-checks=' . $replace_existing_checks, self::PUT, $service_id);
 	}
 
 
@@ -83,7 +84,6 @@ class Service extends Consul
 	{
 		return $this->request('/v1/agent/service/maintenance/' . $service_id, self::PUT);
 	}
-
 
 
 }
