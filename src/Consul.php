@@ -17,6 +17,9 @@ abstract class Consul
 	public string $host = '';
 
 
+	public string $_query = '';
+
+
 	public int $port = 8500;
 
 
@@ -41,6 +44,17 @@ abstract class Consul
 
 
 	/**
+	 * @param string $query
+	 * @return Consul
+	 */
+	public function setQuery(string $query): static
+	{
+		$this->_query = $query;
+		return $this;
+	}
+
+
+	/**
 	 * @param $path
 	 * @param $method
 	 * @param mixed $data
@@ -54,6 +68,9 @@ abstract class Consul
 			->withHeaders(['X-Consul-Token' => $this->token])
 			->withTimeout(60)
 			->withBody(new Stream(json_encode($data)));
+		if (!empty($this->_query)) {
+			$path .= '?' . $this->_query;
+		}
 		return match ($method) {
 			self::GET => $client->get($path),
 			self::POST => $client->post($path),

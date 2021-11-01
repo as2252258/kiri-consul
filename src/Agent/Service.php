@@ -10,13 +10,12 @@ class Service extends Consul
 
 
 	/**
-	 * @param null $filter
 	 * @return ResponseInterface
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function list($filter = null): ResponseInterface
+	public function list(): ResponseInterface
 	{
-		return $this->request('/v1/agent/services?filter=' . $filter, self::GET);
+		return $this->request('/v1/agent/services', self::GET);
 	}
 
 
