@@ -71,12 +71,14 @@ abstract class Consul
 		if (!empty($this->_query)) {
 			$path .= '?' . $this->_query;
 		}
-		return match ($method) {
+		match ($method) {
 			self::GET => $client->get($path),
 			self::POST => $client->post($path),
 			self::PUT => $client->put($path),
 			self::DELETE => $client->delete($path),
 		};
+		$client->close();
+		return $client->getBody();
 	}
 
 
