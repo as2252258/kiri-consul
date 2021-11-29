@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\DiscoveryChain;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 use Kiri\Consul\Consul;
 
 class DiscoveryChain extends Consul
@@ -11,9 +11,9 @@ class DiscoveryChain extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_discovery_chain_node($node): ResponseInterface
+	public function get_discovery_chain_node($node): Client
 	{
 		return $this->request('/v1/discovery-chain/' . $node, self::GET);
 	}
@@ -22,9 +22,9 @@ class DiscoveryChain extends Consul
 	/**
 	 * @param $node
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function post_discovery_chain_node($node, $data): ResponseInterface
+	public function post_discovery_chain_node($node, $data): Client
 	{
 		return $this->request('/v1/discovery-chain/' . $node, self::POST, $data);
 	}

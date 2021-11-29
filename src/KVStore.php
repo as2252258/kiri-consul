@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class KVStore extends Consul
 {
@@ -10,9 +10,9 @@ class KVStore extends Consul
 
 	/**
 	 * @param $key
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get($key): ResponseInterface
+	public function get($key): Client
 	{
 		return $this->request('/v1/kv/' . $key, self::GET);
 	}
@@ -21,9 +21,9 @@ class KVStore extends Consul
 	/**
 	 * @param $key
 	 * @param $value
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($key, $value): ResponseInterface
+	public function put($key, $value): Client
 	{
 		return $this->request('/v1/kv/' . $key, self::PUT, $value);
 	}
@@ -31,9 +31,9 @@ class KVStore extends Consul
 
 	/**
 	 * @param $key
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete($key): ResponseInterface
+	public function delete($key): Client
 	{
 		return $this->request('/v1/kv/' . $key, self::DELETE);
 	}

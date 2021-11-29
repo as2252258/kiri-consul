@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 
 class Health extends Consul
@@ -11,9 +11,9 @@ class Health extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function node($node): ResponseInterface
+	public function node($node): Client
 	{
 		return $this->request('/v1/health/node/'.$node, self::GET);
 	}
@@ -21,9 +21,9 @@ class Health extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function checks($node): ResponseInterface
+	public function checks($node): Client
 	{
 		return $this->request('/v1/health/checks/'.$node, self::GET);
 	}
@@ -31,9 +31,9 @@ class Health extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function service($node): ResponseInterface
+	public function service($node): Client
 	{
 		return $this->request('/v1/health/service/'.$node, self::GET);
 	}
@@ -41,9 +41,9 @@ class Health extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function connect($node): ResponseInterface
+	public function connect($node): Client
 	{
 		return $this->request('/v1/health/connect/'.$node, self::GET);
 	}
@@ -52,9 +52,9 @@ class Health extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function ingress($node): ResponseInterface
+	public function ingress($node): Client
 	{
 		return $this->request('/v1/health/ingress/'.$node, self::GET);
 	}
@@ -62,9 +62,9 @@ class Health extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function state($node): ResponseInterface
+	public function state($node): Client
 	{
 		return $this->request('/v1/health/state/'.$node, self::GET);
 	}

@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class License extends Consul
 {
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function license(): ResponseInterface
+	public function license(): Client
 	{
 		return $this->request('/v1/operator/license', self::GET);
 	}
@@ -20,18 +20,18 @@ class License extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_license($data): ResponseInterface
+	public function put_license($data): Client
 	{
 		return $this->request('/v1/operator/license', self::PUT, $data);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_license(): ResponseInterface
+	public function delete_license(): Client
 	{
 		return $this->request('/v1/operator/license', self::DELETE);
 	}

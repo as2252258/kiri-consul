@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Config extends Consul
 {
@@ -10,10 +10,10 @@ class Config extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function config($data): ResponseInterface
+	public function config($data): Client
 	{
 		return $this->request('/v1/config', self::PUT, $data);
 	}
@@ -22,10 +22,10 @@ class Config extends Consul
 	/**
 	 * @param $kind
 	 * @param $name
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function get($kind, $name): ResponseInterface
+	public function get($kind, $name): Client
 	{
 		return $this->request('/v1/config/' . $kind . '/' . $name, self::GET);
 	}
@@ -34,10 +34,10 @@ class Config extends Consul
 	/**
 	 * @param $kind
 	 * @param $name
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function delete($kind, $name): ResponseInterface
+	public function delete($kind, $name): Client
 	{
 		return $this->request('/v1/config/' . $kind . '/' . $name, self::DELETE);
 	}
@@ -45,10 +45,10 @@ class Config extends Consul
 
 	/**
 	 * @param $kind
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function get_kind($kind): ResponseInterface
+	public function get_kind($kind): Client
 	{
 		return $this->request('/v1/config/' . $kind , self::GET);
 	}

@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Transactions;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Transactions extends Consul
 {
@@ -11,9 +11,9 @@ class Transactions extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($data): ResponseInterface
+	public function put($data): Client
 	{
 		return $this->request('/v1/txn', self::PUT, $data);
 	}

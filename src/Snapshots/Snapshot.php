@@ -4,7 +4,7 @@ namespace Kiri\Consul\Snapshots;
 
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 
 class Snapshot extends Consul
@@ -12,9 +12,9 @@ class Snapshot extends Consul
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get(): ResponseInterface
+	public function get(): Client
 	{
 		return $this->request('/v1/snapshot', self::GET);
 	}
@@ -22,9 +22,9 @@ class Snapshot extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($data): ResponseInterface
+	public function put($data): Client
 	{
 		return $this->request('/v1/snapshot', self::PUT, $data);
 	}

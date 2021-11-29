@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Events extends Consul
 {
@@ -11,18 +11,18 @@ class Events extends Consul
 	/**
 	 * @param $name
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function fire($name, $data): ResponseInterface
+	public function fire($name, $data): Client
 	{
 		return $this->request('/v1/event/fire/' . $name, self::PUT, $data);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function list(): ResponseInterface
+	public function list(): Client
 	{
 		return $this->request('/v1/event/list', self::GET);
 	}

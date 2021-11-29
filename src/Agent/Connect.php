@@ -3,26 +3,26 @@
 namespace Kiri\Consul\Agent;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Connect extends Consul
 {
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/connect
 	 */
-	public function authorize(): ResponseInterface
+	public function authorize(): Client
 	{
 		return $this->request('/v1/agent/connect/authorize', self::POST);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/connect
 	 */
-	public function ca_roots(): ResponseInterface
+	public function ca_roots(): Client
 	{
 		return $this->request('/v1/agent/connect/ca/roots', self::GET);
 	}
@@ -30,10 +30,10 @@ class Connect extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/connect
 	 */
-	public function ca_leaf($id): ResponseInterface
+	public function ca_leaf($id): Client
 	{
 		return $this->request('/v1/agent/connect/ca/leaf/' . $id, self::GET);
 	}

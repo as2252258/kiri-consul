@@ -3,76 +3,76 @@
 namespace Kiri\Consul\Agent;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Agent extends Consul
 {
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function getHost(): ResponseInterface
+	public function getHost(): Client
 	{
 		return $this->request('/v1/agent/host', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function members(): ResponseInterface
+	public function members(): Client
 	{
 		return $this->request('/v1/agent/members', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function self(): ResponseInterface
+	public function self(): Client
 	{
 		return $this->request('/v1/agent/self', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function reload(): ResponseInterface
+	public function reload(): Client
 	{
 		return $this->request('/v1/agent/self', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function maintenance(): ResponseInterface
+	public function maintenance(): Client
 	{
 		return $this->request('/v1/agent/maintenance', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function metrics(): ResponseInterface
+	public function metrics(): Client
 	{
 		return $this->request('/v1/agent/metrics', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function monitor(): ResponseInterface
+	public function monitor(): Client
 	{
 		return $this->request('/v1/agent/monitor', self::GET);
 	}
@@ -80,20 +80,20 @@ class Agent extends Consul
 
 	/**
 	 * @param $address
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function join($address): ResponseInterface
+	public function join($address): Client
 	{
 		return $this->request('/v1/agent/join/' . $address, self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function leave(): ResponseInterface
+	public function leave(): Client
 	{
 		return $this->request('/v1/agent/leave', self::PUT);
 	}
@@ -101,90 +101,90 @@ class Agent extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function force_leave($node): ResponseInterface
+	public function force_leave($node): Client
 	{
 		return $this->request('/v1/agent/force-leave/' . $node, self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_default(): ResponseInterface
+	public function token_default(): Client
 	{
 		return $this->request('/v1/agent/token/default', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_agent(): ResponseInterface
+	public function token_agent(): Client
 	{
 		return $this->request('/v1/agent/token/agent', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_agent_master(): ResponseInterface
+	public function token_agent_master(): Client
 	{
 		return $this->request('/v1/agent/token/agent_master', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_replication(): ResponseInterface
+	public function token_replication(): Client
 	{
 		return $this->request('/v1/agent/token/replication', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_token(): ResponseInterface
+	public function token_acl_token(): Client
 	{
 		return $this->request('/v1/agent/token/acl_token', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_agent_token(): ResponseInterface
+	public function token_acl_agent_token(): Client
 	{
 		return $this->request('/v1/agent/token/acl_agent_token', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_agent_master_token(): ResponseInterface
+	public function token_acl_agent_master_token(): Client
 	{
 		return $this->request('/v1/agent/token/acl_agent_master_token', self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_replication_token(): ResponseInterface
+	public function token_acl_replication_token(): Client
 	{
 		return $this->request('/v1/agent/token/acl_replication_token', self::PUT);
 	}

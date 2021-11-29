@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Operator;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 use Kiri\Consul\Consul;
 
 class Area extends Consul
@@ -11,18 +11,18 @@ class Area extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function post_area($data): ResponseInterface
+	public function post_area($data): Client
 	{
 		return $this->request('/v1/operator/area', self::POST, $data);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_area(): ResponseInterface
+	public function get_area(): Client
 	{
 		return $this->request('/v1/operator/area', self::GET);
 	}
@@ -31,9 +31,9 @@ class Area extends Consul
 	/**
 	 * @param $node
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_area($node, $data): ResponseInterface
+	public function put_area($node, $data): Client
 	{
 		return $this->request('/v1/operator/area/' . $node, self::PUT, $data);
 	}
@@ -41,9 +41,9 @@ class Area extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_area_node($node): ResponseInterface
+	public function get_area_node($node): Client
 	{
 		return $this->request('/v1/operator/area/' . $node, self::GET);
 	}
@@ -51,9 +51,9 @@ class Area extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_area_node($node): ResponseInterface
+	public function delete_area_node($node): Client
 	{
 		return $this->request('/v1/operator/area/' . $node, self::DELETE);
 	}
@@ -62,9 +62,9 @@ class Area extends Consul
 	/**
 	 * @param $node
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function join($node, $data): ResponseInterface
+	public function join($node, $data): Client
 	{
 		return $this->request('/v1/operator/area/' . $node . '/join', self::PUT, $data);
 	}
@@ -72,9 +72,9 @@ class Area extends Consul
 
 	/**
 	 * @param $node
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function members($node): ResponseInterface
+	public function members($node): Client
 	{
 		return $this->request('/v1/operator/area/' . $node . '/members', self::GET);
 	}

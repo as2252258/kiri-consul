@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Catalog;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 use Kiri\Consul\Consul;
 
 class Catalog extends Consul
@@ -11,10 +11,10 @@ class Catalog extends Consul
 
 	/**
 	 * @param array $service_id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function register(array $service_id): ResponseInterface
+	public function register(array $service_id): Client
 	{
 		return $this->request('/v1/catalog/register', self::PUT, $service_id);
 	}
@@ -22,40 +22,40 @@ class Catalog extends Consul
 
 	/**
 	 * @param array $service_id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function deregister(array $service_id): ResponseInterface
+	public function deregister(array $service_id): Client
 	{
 		return $this->request('/v1/catalog/deregister', self::PUT, $service_id);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function datacenters(): ResponseInterface
+	public function datacenters(): Client
 	{
 		return $this->request('/v1/catalog/datacenters', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function nodes(): ResponseInterface
+	public function nodes(): Client
 	{
 		return $this->request('/v1/catalog/nodes', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function services(): ResponseInterface
+	public function services(): Client
 	{
 		return $this->request('/v1/catalog/services', self::GET);
 	}
@@ -63,20 +63,20 @@ class Catalog extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function service($id): ResponseInterface
+	public function service($id): Client
 	{
 		return $this->request('/v1/catalog/service/' . $id, self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function connect(): ResponseInterface
+	public function connect(): Client
 	{
 		return $this->request('/v1/catalog/connect', self::GET);
 	}
@@ -84,10 +84,10 @@ class Catalog extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function node($id): ResponseInterface
+	public function node($id): Client
 	{
 		return $this->request('/v1/catalog/node/' . $id, self::GET);
 	}
@@ -95,10 +95,10 @@ class Catalog extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function node_services($id): ResponseInterface
+	public function node_services($id): Client
 	{
 		return $this->request('/v1/catalog/node-services/' . $id, self::GET);
 	}
@@ -106,10 +106,10 @@ class Catalog extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function gateway_services($id): ResponseInterface
+	public function gateway_services($id): Client
 	{
 		return $this->request('/v1/catalog/gateway-services/' . $id, self::GET);
 	}

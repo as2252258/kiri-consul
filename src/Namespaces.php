@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Namespaces extends Consul
 {
@@ -10,9 +10,9 @@ class Namespaces extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($data): ResponseInterface
+	public function put($data): Client
 	{
 		return $this->request('/v1/namespace', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Namespaces extends Consul
 	/**
 	 * @param $name
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function update($name, $data): ResponseInterface
+	public function update($name, $data): Client
 	{
 		return $this->request('/v1/namespace/' . $name, self::PUT, $data);
 	}
@@ -31,18 +31,18 @@ class Namespaces extends Consul
 
 	/**
 	 * @param $key
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get($key): ResponseInterface
+	public function get($key): Client
 	{
 		return $this->request('/v1/namespace/' . $key, self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function list(): ResponseInterface
+	public function list(): Client
 	{
 		return $this->request('/v1/namespaces', self::GET);
 	}
@@ -50,9 +50,9 @@ class Namespaces extends Consul
 
 	/**
 	 * @param $key
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete($key): ResponseInterface
+	public function delete($key): Client
 	{
 		return $this->request('/v1/namespace/' . $key, self::DELETE);
 	}

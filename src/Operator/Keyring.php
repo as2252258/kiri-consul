@@ -3,15 +3,15 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Keyring extends Consul
 {
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function keyring(): ResponseInterface
+	public function keyring(): Client
 	{
 		return $this->request('/v1/operator/keyring', self::GET);License
 	}
@@ -19,9 +19,9 @@ class Keyring extends Consul
 
 	/**
 	 * @param string $key
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function post_keyring(string $key): ResponseInterface
+	public function post_keyring(string $key): Client
 	{
 		return $this->request('/v1/operator/keyring', self::POST, ['Key' => $key]);
 	}
@@ -29,9 +29,9 @@ class Keyring extends Consul
 
 	/**
 	 * @param string $key
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_keyring(string $key): ResponseInterface
+	public function put_keyring(string $key): Client
 	{
 		return $this->request('/v1/operator/keyring', self::PUT, ['Key' => $key]);
 	}
@@ -39,9 +39,9 @@ class Keyring extends Consul
 
 	/**
 	 * @param string $key
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_keyring(string $key): ResponseInterface
+	public function delete_keyring(string $key): Client
 	{
 		return $this->request('/v1/operator/keyring', self::DELETE, ['Key' => $key]);
 	}

@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Autopilot extends Consul
 {
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function configuration(): ResponseInterface
+	public function configuration(): Client
 	{
 		return $this->request('/v1/operator/autopilot/configuration', self::GET);
 	}
@@ -20,18 +20,18 @@ class Autopilot extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_configuration($data): ResponseInterface
+	public function put_configuration($data): Client
 	{
 		return $this->request('/v1/operator/autopilot/configuration', self::PUT, $data);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function health(): ResponseInterface
+	public function health(): Client
 	{
 		return $this->request('/v1/operator/autopilot/health', self::GET);
 	}
@@ -39,9 +39,9 @@ class Autopilot extends Consul
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function state(): ResponseInterface
+	public function state(): Client
 	{
 		return $this->request('/v1/operator/autopilot/state', self::GET);
 	}

@@ -3,17 +3,17 @@
 namespace Kiri\Consul\Agent;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Service extends Consul
 {
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function list(): ResponseInterface
+	public function list(): Client
 	{
 		return $this->request('/v1/agent/services', self::GET);
 	}
@@ -21,10 +21,10 @@ class Service extends Consul
 
 	/**
 	 * @param $service_id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function service($service_id): ResponseInterface
+	public function service($service_id): Client
 	{
 		return $this->request('/v1/agent/service/' . $service_id, self::GET);
 	}
@@ -32,10 +32,10 @@ class Service extends Consul
 
 	/**
 	 * @param $service_id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function agent_health($service_id): ResponseInterface
+	public function agent_health($service_id): Client
 	{
 		return $this->request('/v1/agent/health/service/name/' . $service_id, self::GET);
 	}
@@ -43,10 +43,10 @@ class Service extends Consul
 
 	/**
 	 * @param $service_id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function service_health($service_id): ResponseInterface
+	public function service_health($service_id): Client
 	{
 		return $this->request('/v1/agent/health/service/id/' . $service_id, self::GET);
 	}
@@ -55,10 +55,10 @@ class Service extends Consul
 	/**
 	 * @param array $service_id
 	 * @param bool $replace_existing_checks
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function register(array $service_id, bool $replace_existing_checks = true): ResponseInterface
+	public function register(array $service_id, bool $replace_existing_checks = true): Client
 	{
 		return $this->request('/v1/agent/service/register?replace-existing-checks=' . $replace_existing_checks, self::PUT, $service_id);
 	}
@@ -66,10 +66,10 @@ class Service extends Consul
 
 	/**
 	 * @param $service_id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function deregister($service_id): ResponseInterface
+	public function deregister($service_id): Client
 	{
 		return $this->request('/v1/agent/service/deregister/' . $service_id, self::PUT);
 	}
@@ -77,10 +77,10 @@ class Service extends Consul
 
 	/**
 	 * @param $service_id
-	 * @return ResponseInterface
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function maintenance($service_id): ResponseInterface
+	public function maintenance($service_id): Client
 	{
 		return $this->request('/v1/agent/service/maintenance/' . $service_id, self::PUT);
 	}

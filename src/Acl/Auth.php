@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Auth extends Consul
 {
@@ -11,9 +11,9 @@ class Auth extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($data): ResponseInterface
+	public function put($data): Client
 	{
 		return $this->request('/v1/acl/auth-method', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Auth extends Consul
 
 	/**
 	 * @param $name
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_name($name): ResponseInterface
+	public function get_name($name): Client
 	{
 		return $this->request('/v1/acl/auth-method/' . $name, self::GET);
 	}
@@ -32,9 +32,9 @@ class Auth extends Consul
 	/**
 	 * @param $name
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_name($name, $data): ResponseInterface
+	public function put_name($name, $data): Client
 	{
 		return $this->request('/v1/acl/auth-method/' . $name, self::PUT, $data);
 	}
@@ -42,18 +42,18 @@ class Auth extends Consul
 
 	/**
 	 * @param $name
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_name($name): ResponseInterface
+	public function delete_name($name): Client
 	{
 		return $this->request('/v1/acl/auth-method/' . $name, self::DELETE);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get(): ResponseInterface
+	public function get(): Client
 	{
 		return $this->request('/v1/acl/auth-methods', self::GET);
 	}

@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Legacy extends Consul
 {
@@ -11,9 +11,9 @@ class Legacy extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function create($data): ResponseInterface
+	public function create($data): Client
 	{
 		return $this->request('/v1/acl/create', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Legacy extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function update($data): ResponseInterface
+	public function update($data): Client
 	{
 		return $this->request('/v1/acl/update', self::PUT, $data);
 	}
@@ -31,9 +31,9 @@ class Legacy extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function info($id): ResponseInterface
+	public function info($id): Client
 	{
 		return $this->request('/v1/acl/info/' . $id, self::GET);
 	}
@@ -41,18 +41,18 @@ class Legacy extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function clone($id): ResponseInterface
+	public function clone($id): Client
 	{
 		return $this->request('/v1/acl/clone/' . $id, self::PUT);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function list(): ResponseInterface
+	public function list(): Client
 	{
 		return $this->request('/v1/acl/list', self::GET);
 	}
@@ -60,9 +60,9 @@ class Legacy extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete($id): ResponseInterface
+	public function delete($id): Client
 	{
 		return $this->request('/v1/acl/destroy/' . $id, self::DELETE);
 	}

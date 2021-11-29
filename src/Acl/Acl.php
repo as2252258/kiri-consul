@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Acl extends Consul
 {
@@ -11,18 +11,18 @@ class Acl extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function bootstrap($data): ResponseInterface
+	public function bootstrap($data): Client
 	{
 		return $this->request('/v1/acl/bootstrap', self::PUT, $data);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function replication(): ResponseInterface
+	public function replication(): Client
 	{
 		return $this->request('/v1/acl/replication', self::GET);
 	}
@@ -30,9 +30,9 @@ class Acl extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function rules_translate($data): ResponseInterface
+	public function rules_translate($data): Client
 	{
 		return $this->request('/v1/acl/rules/translate', self::POST, $data);
 	}
@@ -40,9 +40,9 @@ class Acl extends Consul
 
 	/**
 	 * @param $accessor_id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_rule_translate($accessor_id): ResponseInterface
+	public function get_rule_translate($accessor_id): Client
 	{
 		return $this->request('/v1/acl/rules/translate/' . $accessor_id, self::GET);
 	}
@@ -50,9 +50,9 @@ class Acl extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function login($data): ResponseInterface
+	public function login($data): Client
 	{
 		return $this->request('/v1/acl/login', self::POST, $data);
 	}
@@ -60,9 +60,9 @@ class Acl extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function logout($data): ResponseInterface
+	public function logout($data): Client
 	{
 		return $this->request('/v1/acl/logout', self::POST, $data);
 	}
@@ -70,9 +70,9 @@ class Acl extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function oidc_auth_url($data): ResponseInterface
+	public function oidc_auth_url($data): Client
 	{
 		return $this->request('/v1/acl/oidc/auth-url', self::POST, $data);
 	}
@@ -80,9 +80,9 @@ class Acl extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function oidc_callback($data): ResponseInterface
+	public function oidc_callback($data): Client
 	{
 		return $this->request('/v1/acl/oidc/callback', self::POST, $data);
 	}

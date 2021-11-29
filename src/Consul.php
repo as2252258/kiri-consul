@@ -6,7 +6,6 @@ use Http\Client\Client;
 use Http\Message\Stream;
 use Kiri\Abstracts\Config;
 use Kiri\Exception\ConfigException;
-use Psr\Http\Message\ResponseInterface;
 
 abstract class Consul
 {
@@ -58,9 +57,9 @@ abstract class Consul
 	 * @param $path
 	 * @param $method
 	 * @param mixed $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	protected function request($path, $method, mixed $data = []): ResponseInterface
+	protected function request($path, $method, mixed $data = []): Client
 	{
 		$client = new Client($this->host, $this->port);
 		$client->withConnectTimeout(60)
@@ -78,7 +77,7 @@ abstract class Consul
 			self::DELETE => $client->delete($path),
 		};
 		$client->close();
-		return $client->getBody();
+		return $client;
 	}
 
 

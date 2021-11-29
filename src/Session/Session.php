@@ -4,7 +4,7 @@ namespace Kiri\Consul\Session;
 
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Session extends Consul
 {
@@ -12,9 +12,9 @@ class Session extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($data): ResponseInterface
+	public function put($data): Client
 	{
 		return $this->request('/v1/session/create', self::PUT, $data);
 	}
@@ -23,9 +23,9 @@ class Session extends Consul
 	/**
 	 * @param $uuid
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_destroy($uuid, $data): ResponseInterface
+	public function put_destroy($uuid, $data): Client
 	{
 		return $this->request('/v1/session/destroy/' . $uuid, self::PUT, $data);
 	}
@@ -33,9 +33,9 @@ class Session extends Consul
 
 	/**
 	 * @param $uuid
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function info($uuid): ResponseInterface
+	public function info($uuid): Client
 	{
 		return $this->request('/v1/session/info/' . $uuid, self::GET);
 	}
@@ -43,18 +43,18 @@ class Session extends Consul
 
 	/**
 	 * @param $uuid
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function node($uuid): ResponseInterface
+	public function node($uuid): Client
 	{
 		return $this->request('/v1/session/node/' . $uuid, self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function list(): ResponseInterface
+	public function list(): Client
 	{
 		return $this->request('/v1/session/list', self::GET);
 	}
@@ -62,9 +62,9 @@ class Session extends Consul
 
 	/**
 	 * @param $uuid
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function renew($uuid): ResponseInterface
+	public function renew($uuid): Client
 	{
 		return $this->request('/v1/session/renew/' . $uuid, self::PUT);
 	}

@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Rules extends Consul
 {
@@ -11,9 +11,9 @@ class Rules extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($data): ResponseInterface
+	public function put($data): Client
 	{
 		return $this->request('/v1/acl/binding-rule', self::PUT, $data);
 	}
@@ -21,18 +21,18 @@ class Rules extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_id($id): ResponseInterface
+	public function get_id($id): Client
 	{
 		return $this->request('/v1/acl/binding-rule/' . $id, self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get(): ResponseInterface
+	public function get(): Client
 	{
 		return $this->request('/v1/acl/binding-rules', self::GET);
 	}
@@ -40,9 +40,9 @@ class Rules extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_id($id): ResponseInterface
+	public function delete_id($id): Client
 	{
 		return $this->request('/v1/acl/binding-rule/' . $id, self::DELETE);
 	}
@@ -51,9 +51,9 @@ class Rules extends Consul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_id($id, $data): ResponseInterface
+	public function put_id($id, $data): Client
 	{
 		return $this->request('/v1/acl/binding-rule/' . $id, self::PUT, $data);
 	}

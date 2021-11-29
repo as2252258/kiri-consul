@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Tokens extends Consul
 {
@@ -11,9 +11,9 @@ class Tokens extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function token($data): ResponseInterface
+	public function token($data): Client
 	{
 		return $this->request('/v1/acl/token', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Tokens extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_token($id): ResponseInterface
+	public function get_token($id): Client
 	{
 		return $this->request('/v1/acl/token/' . $id, self::GET);
 	}
@@ -32,9 +32,9 @@ class Tokens extends Consul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_token($id, $data): ResponseInterface
+	public function put_token($id, $data): Client
 	{
 		return $this->request('/v1/acl/token/' . $id, self::PUT, $data);
 	}
@@ -42,9 +42,9 @@ class Tokens extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function clone($id): ResponseInterface
+	public function clone($id): Client
 	{
 		return $this->request('/v1/acl/token/' . $id . '/clone', self::PUT);
 	}
@@ -52,9 +52,9 @@ class Tokens extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete($id): ResponseInterface
+	public function delete($id): Client
 	{
 		return $this->request('/v1/acl/token/' . $id, self::DELETE);
 	}
@@ -62,18 +62,18 @@ class Tokens extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get($id): ResponseInterface
+	public function get($id): Client
 	{
 		return $this->request('/v1/acl/tokens', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function self(): ResponseInterface
+	public function self(): Client
 	{
 		return $this->request('/v1/acl/token/self', self::GET);
 	}

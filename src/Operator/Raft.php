@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Raft extends Consul
 {
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function configuration(): ResponseInterface
+	public function configuration(): Client
 	{
 		return $this->request('/v1/operator/raft/configuration', self::GET);
 	}
@@ -20,9 +20,9 @@ class Raft extends Consul
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_peer(): ResponseInterface
+	public function delete_peer(): Client
 	{
 		return $this->request('/v1/operator/raft/peer', self::DELETE);
 	}

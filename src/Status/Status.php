@@ -4,25 +4,25 @@ namespace Kiri\Consul\Status;
 
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Status extends Consul
 {
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get(): ResponseInterface
+	public function get(): Client
 	{
 		return $this->request('/v1/status/leader', self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function peers(): ResponseInterface
+	public function peers(): Client
 	{
 		return $this->request('/v1/status/peers', self::GET);
 	}

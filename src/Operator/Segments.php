@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Segments extends Consul
 {
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function segment(): ResponseInterface
+	public function segment(): Client
 	{
 		return $this->request('/v1/operator/segment', self::GET);
 	}

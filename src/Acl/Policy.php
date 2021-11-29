@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Policy extends Consul
 {
@@ -11,9 +11,9 @@ class Policy extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function policy($data): ResponseInterface
+	public function policy($data): Client
 	{
 		return $this->request('/v1/acl/policy', self::PUT, $data);
 	}
@@ -22,9 +22,9 @@ class Policy extends Consul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_id($id, $data): ResponseInterface
+	public function put_id($id, $data): Client
 	{
 		return $this->request('/v1/acl/policy/' . $id, self::PUT, $data);
 	}
@@ -32,9 +32,9 @@ class Policy extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_id($id): ResponseInterface
+	public function delete_id($id): Client
 	{
 		return $this->request('/v1/acl/policy/' . $id, self::DELETE);
 	}
@@ -42,9 +42,9 @@ class Policy extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_id($id): ResponseInterface
+	public function get_id($id): Client
 	{
 		return $this->request('/v1/acl/policy/' . $id, self::GET);
 	}
@@ -52,18 +52,18 @@ class Policy extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_name($id): ResponseInterface
+	public function get_name($id): Client
 	{
 		return $this->request('/v1/acl/policy/name/' . $id, self::GET);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get(): ResponseInterface
+	public function get(): Client
 	{
 		return $this->request('/v1/acl/policies', self::GET);
 	}

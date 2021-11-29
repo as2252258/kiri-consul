@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Query extends Consul
 {
@@ -10,18 +10,18 @@ class Query extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function post($data): ResponseInterface
+	public function post($data): Client
 	{
 		return $this->request('/v1/query', self::POST, $data);
 	}
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get(): ResponseInterface
+	public function get(): Client
 	{
 		return $this->request('/v1/query', self::GET);
 	}
@@ -30,9 +30,9 @@ class Query extends Consul
 	/**
 	 * @param $uuid
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($uuid, $data): ResponseInterface
+	public function put($uuid, $data): Client
 	{
 		return $this->request('/v1/query/' . $uuid, self::PUT, $data);
 	}
@@ -40,9 +40,9 @@ class Query extends Consul
 
 	/**
 	 * @param $uuid
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete($uuid): ResponseInterface
+	public function delete($uuid): Client
 	{
 		return $this->request('/v1/query/' . $uuid, self::DELETE);
 	}
@@ -50,9 +50,9 @@ class Query extends Consul
 
 	/**
 	 * @param $uuid
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_uuid($uuid): ResponseInterface
+	public function get_uuid($uuid): Client
 	{
 		return $this->request('/v1/query/' . $uuid, self::GET);
 	}
@@ -60,9 +60,9 @@ class Query extends Consul
 
 	/**
 	 * @param $uuid
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_uuid_execute($uuid): ResponseInterface
+	public function get_uuid_execute($uuid): Client
 	{
 		return $this->request('/v1/query/' . $uuid . '/execute', self::GET);
 	}
@@ -70,9 +70,9 @@ class Query extends Consul
 
 	/**
 	 * @param $uuid
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_uuid_explain($uuid): ResponseInterface
+	public function get_uuid_explain($uuid): Client
 	{
 		return $this->request('/v1/query/' . $uuid . '/explain', self::GET);
 	}

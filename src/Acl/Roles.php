@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\Consul;
-use Psr\Http\Message\ResponseInterface;
+use Http\Client\Client;
 
 class Roles extends Consul
 {
@@ -11,9 +11,9 @@ class Roles extends Consul
 
 	/**
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put($data): ResponseInterface
+	public function put($data): Client
 	{
 		return $this->request('/v1/acl/role', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Roles extends Consul
 
 
 	/**
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get(): ResponseInterface
+	public function get(): Client
 	{
 		return $this->request('/v1/acl/roles', self::GET);
 	}
@@ -31,9 +31,9 @@ class Roles extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_id($id): ResponseInterface
+	public function get_id($id): Client
 	{
 		return $this->request('/v1/acl/role/' . $id, self::GET);
 	}
@@ -42,9 +42,9 @@ class Roles extends Consul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function put_id($id, $data): ResponseInterface
+	public function put_id($id, $data): Client
 	{
 		return $this->request('/v1/acl/role/' . $id, self::PUT, $data);
 	}
@@ -52,9 +52,9 @@ class Roles extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function delete_id($id): ResponseInterface
+	public function delete_id($id): Client
 	{
 		return $this->request('/v1/acl/role/' . $id, self::DELETE);
 	}
@@ -62,9 +62,9 @@ class Roles extends Consul
 
 	/**
 	 * @param $id
-	 * @return ResponseInterface
+	 * @return Client
 	 */
-	public function get_name($id): ResponseInterface
+	public function get_name($id): Client
 	{
 		return $this->request('/v1/acl/role/name/' . $id, self::GET);
 	}
