@@ -3,11 +3,11 @@
 namespace Kiri\Consul\Snapshots;
 
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
 
-class Snapshot extends Consul
+class Snapshot extends AbstractConsul
 {
 
 

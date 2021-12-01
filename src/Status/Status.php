@@ -3,10 +3,10 @@
 namespace Kiri\Consul\Status;
 
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
-class Status extends Consul
+class Status extends AbstractConsul
 {
 
 

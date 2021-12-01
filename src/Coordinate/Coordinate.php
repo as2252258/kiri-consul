@@ -3,9 +3,9 @@
 namespace Kiri\Consul\Coordinate;
 
 use Http\Client\Client;
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 
-class Coordinate extends Consul
+class Coordinate extends AbstractConsul
 {
 
 

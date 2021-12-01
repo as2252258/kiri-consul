@@ -4,7 +4,7 @@ namespace Kiri\Consul;
 
 use Http\Client\Client;
 
-class Connect extends Consul
+class Connect extends AbstractConsul
 {
 
 

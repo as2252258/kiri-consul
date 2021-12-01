@@ -3,20 +3,30 @@
 namespace Kiri\Consul\Catalog;
 
 use Http\Client\Client;
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 
-class Catalog extends Consul
+class Catalog extends AbstractConsul
 {
 
 
 	/**
-	 * @param array $service_id
+	 * @param array $options
 	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function register(array $service_id): Client
+	public function register(array $options = [
+		'ID'              => '',
+		'Node'            => '',
+		'Address'         => '',
+		'Datacenter'      => '',
+		'TaggedAddresses' => [],
+		'NodeMeta'        => [],
+		'Service'         => [],
+		'Check'           => [],
+		'SkipNodeUpdate'  => false
+	]): Client
 	{
-		return $this->request('/v1/catalog/register', self::PUT, $service_id);
+		return $this->request('/v1/catalog/register', self::PUT, $options);
 	}
 
 

@@ -2,10 +2,10 @@
 
 namespace Kiri\Consul\Acl;
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
-class Roles extends Consul
+class Roles extends AbstractConsul
 {
 
 

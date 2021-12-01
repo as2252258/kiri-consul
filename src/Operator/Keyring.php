@@ -2,10 +2,10 @@
 
 namespace Kiri\Consul\Operator;
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
-class Keyring extends Consul
+class Keyring extends AbstractConsul
 {
 
 	/**

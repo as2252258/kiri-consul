@@ -2,10 +2,10 @@
 
 namespace Kiri\Consul\Operator;
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
-class License extends Consul
+class License extends AbstractConsul
 {
 
 

@@ -2,10 +2,10 @@
 
 namespace Kiri\Consul\Transactions;
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
-class Transactions extends Consul
+class Transactions extends AbstractConsul
 {
 
 

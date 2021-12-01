@@ -4,7 +4,7 @@ namespace Kiri\Consul;
 
 use Http\Client\Client;
 
-class Events extends Consul
+class Events extends AbstractConsul
 {
 
 

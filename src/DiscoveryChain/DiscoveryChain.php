@@ -3,9 +3,9 @@
 namespace Kiri\Consul\DiscoveryChain;
 
 use Http\Client\Client;
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 
-class DiscoveryChain extends Consul
+class DiscoveryChain extends AbstractConsul
 {
 
 

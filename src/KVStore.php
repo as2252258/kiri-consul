@@ -4,7 +4,7 @@ namespace Kiri\Consul;
 
 use Http\Client\Client;
 
-class KVStore extends Consul
+class KVStore extends AbstractConsul
 {
 
 

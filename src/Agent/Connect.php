@@ -2,10 +2,10 @@
 
 namespace Kiri\Consul\Agent;
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
-class Connect extends Consul
+class Connect extends AbstractConsul
 {
 
 	/**

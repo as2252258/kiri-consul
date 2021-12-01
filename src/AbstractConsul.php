@@ -7,7 +7,7 @@ use Http\Message\Stream;
 use Kiri\Abstracts\Config;
 use Kiri\Exception\ConfigException;
 
-abstract class Consul
+abstract class AbstractConsul
 {
 
 	public string $token = '';
@@ -44,7 +44,7 @@ abstract class Consul
 
 	/**
 	 * @param string $query
-	 * @return Consul
+	 * @return AbstractConsul
 	 */
 	public function setQuery(string $query): static
 	{
@@ -64,7 +64,7 @@ abstract class Consul
 		$client = new Client($this->host, $this->port);
 		$client->withConnectTimeout(60)
 			->withContentType('application/json')
-			->withHeaders(['X-Consul-Token' => $this->token])
+			->withHeaders(['X-AbstractConsul-Token' => $this->token])
 			->withTimeout(60)
 			->withBody(new Stream(json_encode($data)));
 		if (!empty($this->_query)) {

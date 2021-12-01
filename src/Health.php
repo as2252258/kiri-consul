@@ -5,7 +5,7 @@ namespace Kiri\Consul;
 use Http\Client\Client;
 
 
-class Health extends Consul
+class Health extends AbstractConsul
 {
 
 

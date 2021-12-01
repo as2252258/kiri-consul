@@ -3,9 +3,9 @@
 namespace Kiri\Consul\Operator;
 
 use Http\Client\Client;
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 
-class Area extends Consul
+class Area extends AbstractConsul
 {
 
 

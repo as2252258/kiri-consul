@@ -3,10 +3,10 @@
 namespace Kiri\Consul\Session;
 
 
-use Kiri\Consul\Consul;
+use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
 
-class Session extends Consul
+class Session extends AbstractConsul
 {
 
 
