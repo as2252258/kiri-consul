@@ -2,8 +2,8 @@
 
 namespace Kiri\Consul\Agent;
 
-use Kiri\Consul\AbstractConsul;
 use Http\Client\Client;
+use Kiri\Consul\AbstractConsul;
 
 class Service extends AbstractConsul
 {
@@ -60,7 +60,8 @@ class Service extends AbstractConsul
 	 */
 	public function register(array $service_id, bool $replace_existing_checks = true): Client
 	{
-		return $this->request('/v1/agent/service/register?replace-existing-checks=' . $replace_existing_checks, self::PUT, $service_id);
+		return $this->setQuery('replace-existing-checks=' . $replace_existing_checks)
+			->request('/v1/agent/service/register', self::PUT, $service_id);
 	}
 
 
