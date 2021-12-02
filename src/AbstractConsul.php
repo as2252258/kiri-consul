@@ -66,7 +66,7 @@ abstract class AbstractConsul
 			->withContentType('application/json')
 			->withHeaders(['X-AbstractConsul-Token' => $this->token])
 			->withTimeout(60)
-			->withBody(new Stream(json_encode($data)));
+			->withBody(new Stream(json_encode($data, JSON_UNESCAPED_UNICODE)));
 		if (!empty($this->_query)) {
 			$path .= '?' . $this->_query;
 		}
