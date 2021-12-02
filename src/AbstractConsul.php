@@ -64,7 +64,7 @@ abstract class AbstractConsul
 		$client = new Client($this->host, $this->port);
 		$client->withConnectTimeout(60)
 			->withContentType('application/json')
-			->withHeaders(['X-AbstractConsul-Token' => $this->token])
+			->withHeaders(['X-Consul-Token' => $this->token])
 			->withTimeout(60)
 			->withBody(new Stream(json_encode($data, JSON_UNESCAPED_UNICODE)));
 		if (!empty($this->_query)) {
