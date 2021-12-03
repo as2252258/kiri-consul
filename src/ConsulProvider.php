@@ -2,10 +2,10 @@
 
 namespace Kiri\Consul;
 
-use Kiri\Abstracts\BaseObject;
+use Kiri\Abstracts\Component;
 
 
-class ConsulProvider extends BaseObject implements ConsulInterface
+class ConsulProvider extends Component implements ConsulInterface
 {
 
 
