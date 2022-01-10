@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Http\Client\Client;
+use Kiri\Client;
 
 class Query extends AbstractConsul
 {

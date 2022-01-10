@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Http\Client\Client;
+use Kiri\Client;
 
 class Auth extends AbstractConsul
 {

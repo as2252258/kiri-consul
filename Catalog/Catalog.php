@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Catalog;
 
-use Http\Client\Client;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class Catalog extends AbstractConsul

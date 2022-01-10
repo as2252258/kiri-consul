@@ -4,7 +4,7 @@ namespace Kiri\Consul\Session;
 
 
 use Kiri\Consul\AbstractConsul;
-use Http\Client\Client;
+use Kiri\Client;
 
 class Session extends AbstractConsul
 {

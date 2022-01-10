@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Agent;
 
 use Kiri\Consul\AbstractConsul;
-use Http\Client\Client;
+use Kiri\Client;
 
 class Connect extends AbstractConsul
 {

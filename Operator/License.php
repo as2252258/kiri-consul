@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\AbstractConsul;
-use Http\Client\Client;
+use Kiri\Client;
 
 class License extends AbstractConsul
 {

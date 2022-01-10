@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Coordinate;
 
-use Http\Client\Client;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class Coordinate extends AbstractConsul

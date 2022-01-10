@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\DiscoveryChain;
 
-use Http\Client\Client;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class DiscoveryChain extends AbstractConsul

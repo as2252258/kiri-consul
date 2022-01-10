@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Agent;
 
-use Http\Client\Client;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class Service extends AbstractConsul

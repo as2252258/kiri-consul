@@ -4,7 +4,7 @@ namespace Kiri\Consul\Snapshots;
 
 
 use Kiri\Consul\AbstractConsul;
-use Http\Client\Client;
+use Kiri\Client;
 
 
 class Snapshot extends AbstractConsul

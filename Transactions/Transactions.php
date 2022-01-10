@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Transactions;
 
 use Kiri\Consul\AbstractConsul;
-use Http\Client\Client;
+use Kiri\Client;
 
 class Transactions extends AbstractConsul
 {

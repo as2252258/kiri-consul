@@ -4,7 +4,7 @@ namespace Kiri\Consul\Status;
 
 
 use Kiri\Consul\AbstractConsul;
-use Http\Client\Client;
+use Kiri\Client;
 
 class Status extends AbstractConsul
 {

@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Operator;
 
-use Http\Client\Client;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class Area extends AbstractConsul
