@@ -3,6 +3,7 @@
 namespace Kiri\Consul;
 
 use Kiri\Abstracts\Config;
+use Kiri\AsyncClient;
 use Kiri\Client;
 use Kiri\Exception\ConfigException;
 use Kiri\Message\Stream;
@@ -61,11 +62,11 @@ abstract class AbstractConsul
 	 * @param $path
 	 * @param $method
 	 * @param mixed $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	protected function request($path, $method, mixed $data = []): Client
+	protected function request($path, $method, mixed $data = [])
 	{
-		$client = new Client($this->host, $this->port, $this->isSsl);
+		$client = new AsyncClient($this->host, $this->port, $this->isSsl);
 		$client->withConnectTimeout(60)
 			->withContentType('application/json')
 			->withHeaders(['X-Consul-Token' => $this->token])
