@@ -70,10 +70,8 @@ abstract class AbstractConsul
 	protected function request($path, $method, mixed $data = []): AsyncClient
 	{
 		$client = new AsyncClient($this->host, $this->port, $this->isSsl);
-		$client->withConnectTimeout(60)
-			->withContentType('application/json')
-			->withHeaders(['X-Consul-Token' => $this->token])
-			->withTimeout(60)
+		$client->withConnectTimeout(60)->withContentType('application/json')
+			->withHeaders(['X-Consul-Token' => $this->token])->withTimeout(60)
 			->withBody(new Stream(json_encode($data, JSON_UNESCAPED_UNICODE)));
 		if (!empty($this->_query)) {
 			$path .= '?' . $this->_query;
