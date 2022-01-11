@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Coordinate;
 
-use Kiri\AsyncClient;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class Coordinate extends AbstractConsul
@@ -10,20 +10,20 @@ class Coordinate extends AbstractConsul
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function coordinate_datacenters(): AsyncClient
+	public function coordinate_datacenters(): Client
 	{
 		return $this->request('/v1/coordinate/datacenters', self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function coordinate_nodes(): AsyncClient
+	public function coordinate_nodes(): Client
 	{
 		return $this->request('/v1/coordinate/nodes', self::GET);
 	}
@@ -31,10 +31,10 @@ class Coordinate extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function coordinate_node($node): AsyncClient
+	public function coordinate_node($node): Client
 	{
 		return $this->request('/v1/coordinate/node/' . $node, self::GET);
 	}
@@ -42,10 +42,10 @@ class Coordinate extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function coordinate_update($node): AsyncClient
+	public function coordinate_update($node): Client
 	{
 		return $this->request('/v1/coordinate/update', self::PUT, $node);
 	}

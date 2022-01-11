@@ -4,7 +4,7 @@ namespace Kiri\Consul\Snapshots;
 
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 
 class Snapshot extends AbstractConsul
@@ -12,9 +12,9 @@ class Snapshot extends AbstractConsul
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get(): AsyncClient
+	public function get(): Client
 	{
 		return $this->request('/v1/snapshot', self::GET);
 	}
@@ -22,9 +22,9 @@ class Snapshot extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put($data): AsyncClient
+	public function put($data): Client
 	{
 		return $this->request('/v1/snapshot', self::PUT, $data);
 	}

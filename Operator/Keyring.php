@@ -3,15 +3,15 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Keyring extends AbstractConsul
 {
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function keyring(): AsyncClient
+	public function keyring(): Client
 	{
 		return $this->request('/v1/operator/keyring', self::GET);License
 	}
@@ -19,9 +19,9 @@ class Keyring extends AbstractConsul
 
 	/**
 	 * @param string $key
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function post_keyring(string $key): AsyncClient
+	public function post_keyring(string $key): Client
 	{
 		return $this->request('/v1/operator/keyring', self::POST, ['Key' => $key]);
 	}
@@ -29,9 +29,9 @@ class Keyring extends AbstractConsul
 
 	/**
 	 * @param string $key
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_keyring(string $key): AsyncClient
+	public function put_keyring(string $key): Client
 	{
 		return $this->request('/v1/operator/keyring', self::PUT, ['Key' => $key]);
 	}
@@ -39,9 +39,9 @@ class Keyring extends AbstractConsul
 
 	/**
 	 * @param string $key
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete_keyring(string $key): AsyncClient
+	public function delete_keyring(string $key): Client
 	{
 		return $this->request('/v1/operator/keyring', self::DELETE, ['Key' => $key]);
 	}

@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Auth extends AbstractConsul
 {
@@ -11,9 +11,9 @@ class Auth extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put($data): AsyncClient
+	public function put($data): Client
 	{
 		return $this->request('/v1/acl/auth-method', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Auth extends AbstractConsul
 
 	/**
 	 * @param $name
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_name($name): AsyncClient
+	public function get_name($name): Client
 	{
 		return $this->request('/v1/acl/auth-method/' . $name, self::GET);
 	}
@@ -32,9 +32,9 @@ class Auth extends AbstractConsul
 	/**
 	 * @param $name
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_name($name, $data): AsyncClient
+	public function put_name($name, $data): Client
 	{
 		return $this->request('/v1/acl/auth-method/' . $name, self::PUT, $data);
 	}
@@ -42,18 +42,18 @@ class Auth extends AbstractConsul
 
 	/**
 	 * @param $name
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete_name($name): AsyncClient
+	public function delete_name($name): Client
 	{
 		return $this->request('/v1/acl/auth-method/' . $name, self::DELETE);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get(): AsyncClient
+	public function get(): Client
 	{
 		return $this->request('/v1/acl/auth-methods', self::GET);
 	}

@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Autopilot extends AbstractConsul
 {
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function configuration(): AsyncClient
+	public function configuration(): Client
 	{
 		return $this->request('/v1/operator/autopilot/configuration', self::GET);
 	}
@@ -20,18 +20,18 @@ class Autopilot extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_configuration($data): AsyncClient
+	public function put_configuration($data): Client
 	{
 		return $this->request('/v1/operator/autopilot/configuration', self::PUT, $data);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function health(): AsyncClient
+	public function health(): Client
 	{
 		return $this->request('/v1/operator/autopilot/health', self::GET);
 	}
@@ -39,9 +39,9 @@ class Autopilot extends AbstractConsul
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function state(): AsyncClient
+	public function state(): Client
 	{
 		return $this->request('/v1/operator/autopilot/state', self::GET);
 	}

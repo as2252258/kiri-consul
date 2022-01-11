@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Tokens extends AbstractConsul
 {
@@ -11,9 +11,9 @@ class Tokens extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function token($data): AsyncClient
+	public function token($data): Client
 	{
 		return $this->request('/v1/acl/token', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Tokens extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_token($id): AsyncClient
+	public function get_token($id): Client
 	{
 		return $this->request('/v1/acl/token/' . $id, self::GET);
 	}
@@ -32,9 +32,9 @@ class Tokens extends AbstractConsul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_token($id, $data): AsyncClient
+	public function put_token($id, $data): Client
 	{
 		return $this->request('/v1/acl/token/' . $id, self::PUT, $data);
 	}
@@ -42,9 +42,9 @@ class Tokens extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function clone($id): AsyncClient
+	public function clone($id): Client
 	{
 		return $this->request('/v1/acl/token/' . $id . '/clone', self::PUT);
 	}
@@ -52,9 +52,9 @@ class Tokens extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete($id): AsyncClient
+	public function delete($id): Client
 	{
 		return $this->request('/v1/acl/token/' . $id, self::DELETE);
 	}
@@ -62,18 +62,18 @@ class Tokens extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get($id): AsyncClient
+	public function get($id): Client
 	{
 		return $this->request('/v1/acl/tokens', self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function self(): AsyncClient
+	public function self(): Client
 	{
 		return $this->request('/v1/acl/token/self', self::GET);
 	}

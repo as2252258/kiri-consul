@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class License extends AbstractConsul
 {
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function license(): AsyncClient
+	public function license(): Client
 	{
 		return $this->request('/v1/operator/license', self::GET);
 	}
@@ -20,18 +20,18 @@ class License extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_license($data): AsyncClient
+	public function put_license($data): Client
 	{
 		return $this->request('/v1/operator/license', self::PUT, $data);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete_license(): AsyncClient
+	public function delete_license(): Client
 	{
 		return $this->request('/v1/operator/license', self::DELETE);
 	}

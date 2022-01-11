@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Policy extends AbstractConsul
 {
@@ -11,9 +11,9 @@ class Policy extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function policy($data): AsyncClient
+	public function policy($data): Client
 	{
 		return $this->request('/v1/acl/policy', self::PUT, $data);
 	}
@@ -22,9 +22,9 @@ class Policy extends AbstractConsul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_id($id, $data): AsyncClient
+	public function put_id($id, $data): Client
 	{
 		return $this->request('/v1/acl/policy/' . $id, self::PUT, $data);
 	}
@@ -32,9 +32,9 @@ class Policy extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete_id($id): AsyncClient
+	public function delete_id($id): Client
 	{
 		return $this->request('/v1/acl/policy/' . $id, self::DELETE);
 	}
@@ -42,9 +42,9 @@ class Policy extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_id($id): AsyncClient
+	public function get_id($id): Client
 	{
 		return $this->request('/v1/acl/policy/' . $id, self::GET);
 	}
@@ -52,18 +52,18 @@ class Policy extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_name($id): AsyncClient
+	public function get_name($id): Client
 	{
 		return $this->request('/v1/acl/policy/name/' . $id, self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get(): AsyncClient
+	public function get(): Client
 	{
 		return $this->request('/v1/acl/policies', self::GET);
 	}

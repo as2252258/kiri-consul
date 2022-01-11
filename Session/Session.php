@@ -4,7 +4,7 @@ namespace Kiri\Consul\Session;
 
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Session extends AbstractConsul
 {
@@ -12,9 +12,9 @@ class Session extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put($data): AsyncClient
+	public function put($data): Client
 	{
 		return $this->request('/v1/session/create', self::PUT, $data);
 	}
@@ -23,9 +23,9 @@ class Session extends AbstractConsul
 	/**
 	 * @param $uuid
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_destroy($uuid, $data): AsyncClient
+	public function put_destroy($uuid, $data): Client
 	{
 		return $this->request('/v1/session/destroy/' . $uuid, self::PUT, $data);
 	}
@@ -33,9 +33,9 @@ class Session extends AbstractConsul
 
 	/**
 	 * @param $uuid
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function info($uuid): AsyncClient
+	public function info($uuid): Client
 	{
 		return $this->request('/v1/session/info/' . $uuid, self::GET);
 	}
@@ -43,18 +43,18 @@ class Session extends AbstractConsul
 
 	/**
 	 * @param $uuid
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function node($uuid): AsyncClient
+	public function node($uuid): Client
 	{
 		return $this->request('/v1/session/node/' . $uuid, self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function list(): AsyncClient
+	public function list(): Client
 	{
 		return $this->request('/v1/session/list', self::GET);
 	}
@@ -62,9 +62,9 @@ class Session extends AbstractConsul
 
 	/**
 	 * @param $uuid
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function renew($uuid): AsyncClient
+	public function renew($uuid): Client
 	{
 		return $this->request('/v1/session/renew/' . $uuid, self::PUT);
 	}

@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Catalog;
 
-use Kiri\AsyncClient;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class Catalog extends AbstractConsul
@@ -11,7 +11,7 @@ class Catalog extends AbstractConsul
 
 	/**
 	 * @param array $options
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
 	public function register(array $options = [
@@ -24,7 +24,7 @@ class Catalog extends AbstractConsul
 		'Service'         => [],
 		'Check'           => [],
 		'SkipNodeUpdate'  => false
-	]): AsyncClient
+	]): Client
 	{
 		return $this->request('/v1/catalog/register', self::PUT, $options);
 	}
@@ -32,40 +32,40 @@ class Catalog extends AbstractConsul
 
 	/**
 	 * @param array $service_id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function deregister(array $service_id): AsyncClient
+	public function deregister(array $service_id): Client
 	{
 		return $this->request('/v1/catalog/deregister', self::PUT, $service_id);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function datacenters(): AsyncClient
+	public function datacenters(): Client
 	{
 		return $this->request('/v1/catalog/datacenters', self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function nodes(): AsyncClient
+	public function nodes(): Client
 	{
 		return $this->request('/v1/catalog/nodes', self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function services(): AsyncClient
+	public function services(): Client
 	{
 		return $this->request('/v1/catalog/services', self::GET);
 	}
@@ -73,20 +73,20 @@ class Catalog extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function service($id): AsyncClient
+	public function service($id): Client
 	{
 		return $this->request('/v1/catalog/service/' . $id, self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function connect(): AsyncClient
+	public function connect(): Client
 	{
 		return $this->request('/v1/catalog/connect', self::GET);
 	}
@@ -94,10 +94,10 @@ class Catalog extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function node($id): AsyncClient
+	public function node($id): Client
 	{
 		return $this->request('/v1/catalog/node/' . $id, self::GET);
 	}
@@ -105,10 +105,10 @@ class Catalog extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function node_services($id): AsyncClient
+	public function node_services($id): Client
 	{
 		return $this->request('/v1/catalog/node-services/' . $id, self::GET);
 	}
@@ -116,10 +116,10 @@ class Catalog extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/catalog
 	 */
-	public function gateway_services($id): AsyncClient
+	public function gateway_services($id): Client
 	{
 		return $this->request('/v1/catalog/gateway-services/' . $id, self::GET);
 	}

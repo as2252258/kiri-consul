@@ -3,26 +3,26 @@
 namespace Kiri\Consul\Agent;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Connect extends AbstractConsul
 {
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/connect
 	 */
-	public function authorize(): AsyncClient
+	public function authorize(): Client
 	{
 		return $this->request('/v1/agent/connect/authorize', self::POST);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/connect
 	 */
-	public function ca_roots(): AsyncClient
+	public function ca_roots(): Client
 	{
 		return $this->request('/v1/agent/connect/ca/roots', self::GET);
 	}
@@ -30,10 +30,10 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/connect
 	 */
-	public function ca_leaf($id): AsyncClient
+	public function ca_leaf($id): Client
 	{
 		return $this->request('/v1/agent/connect/ca/leaf/' . $id, self::GET);
 	}
