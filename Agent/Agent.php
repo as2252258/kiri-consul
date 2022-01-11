@@ -3,76 +3,76 @@
 namespace Kiri\Consul\Agent;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Agent extends AbstractConsul
 {
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function getHost(): Client
+	public function getHost(): AsyncClient
 	{
 		return $this->request('/v1/agent/host', self::GET);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function members(): Client
+	public function members(): AsyncClient
 	{
 		return $this->request('/v1/agent/members', self::GET);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function self(): Client
+	public function self(): AsyncClient
 	{
 		return $this->request('/v1/agent/self', self::GET);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function reload(): Client
+	public function reload(): AsyncClient
 	{
 		return $this->request('/v1/agent/self', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function maintenance(): Client
+	public function maintenance(): AsyncClient
 	{
 		return $this->request('/v1/agent/maintenance', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function metrics(): Client
+	public function metrics(): AsyncClient
 	{
 		return $this->request('/v1/agent/metrics', self::GET);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function monitor(): Client
+	public function monitor(): AsyncClient
 	{
 		return $this->request('/v1/agent/monitor', self::GET);
 	}
@@ -80,20 +80,20 @@ class Agent extends AbstractConsul
 
 	/**
 	 * @param $address
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function join($address): Client
+	public function join($address): AsyncClient
 	{
 		return $this->request('/v1/agent/join/' . $address, self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function leave(): Client
+	public function leave(): AsyncClient
 	{
 		return $this->request('/v1/agent/leave', self::PUT);
 	}
@@ -101,90 +101,90 @@ class Agent extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function force_leave($node): Client
+	public function force_leave($node): AsyncClient
 	{
 		return $this->request('/v1/agent/force-leave/' . $node, self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_default(): Client
+	public function token_default(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/default', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_agent(): Client
+	public function token_agent(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/agent', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_agent_master(): Client
+	public function token_agent_master(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/agent_master', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_replication(): Client
+	public function token_replication(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/replication', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_token(): Client
+	public function token_acl_token(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/acl_token', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_agent_token(): Client
+	public function token_acl_agent_token(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/acl_agent_token', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_agent_master_token(): Client
+	public function token_acl_agent_master_token(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/acl_agent_master_token', self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/agent
 	 */
-	public function token_acl_replication_token(): Client
+	public function token_acl_replication_token(): AsyncClient
 	{
 		return $this->request('/v1/agent/token/acl_replication_token', self::PUT);
 	}

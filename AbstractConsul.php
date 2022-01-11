@@ -4,7 +4,7 @@ namespace Kiri\Consul;
 
 use Kiri\Abstracts\Config;
 use Kiri\AsyncClient;
-use Kiri\Client;
+use Kiri\AsyncClient;
 use Kiri\Exception\ConfigException;
 use Kiri\Message\Stream;
 

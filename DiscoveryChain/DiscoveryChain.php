@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\DiscoveryChain;
 
-use Kiri\Client;
+use Kiri\AsyncClient;
 use Kiri\Consul\AbstractConsul;
 
 class DiscoveryChain extends AbstractConsul
@@ -11,9 +11,9 @@ class DiscoveryChain extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get_discovery_chain_node($node): Client
+	public function get_discovery_chain_node($node): AsyncClient
 	{
 		return $this->request('/v1/discovery-chain/' . $node, self::GET);
 	}
@@ -22,9 +22,9 @@ class DiscoveryChain extends AbstractConsul
 	/**
 	 * @param $node
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function post_discovery_chain_node($node, $data): Client
+	public function post_discovery_chain_node($node, $data): AsyncClient
 	{
 		return $this->request('/v1/discovery-chain/' . $node, self::POST, $data);
 	}

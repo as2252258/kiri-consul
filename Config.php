@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Config extends AbstractConsul
 {
@@ -10,10 +10,10 @@ class Config extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function config($data): Client
+	public function config($data): AsyncClient
 	{
 		return $this->request('/v1/config', self::PUT, $data);
 	}
@@ -22,10 +22,10 @@ class Config extends AbstractConsul
 	/**
 	 * @param $kind
 	 * @param $name
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function get($kind, $name): Client
+	public function get($kind, $name): AsyncClient
 	{
 		return $this->request('/v1/config/' . $kind . '/' . $name, self::GET);
 	}
@@ -34,10 +34,10 @@ class Config extends AbstractConsul
 	/**
 	 * @param $kind
 	 * @param $name
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function delete($kind, $name): Client
+	public function delete($kind, $name): AsyncClient
 	{
 		return $this->request('/v1/config/' . $kind . '/' . $name, self::DELETE);
 	}
@@ -45,10 +45,10 @@ class Config extends AbstractConsul
 
 	/**
 	 * @param $kind
-	 * @return Client
+	 * @return AsyncClient
 	 * @see https://www.consul.io/api-docs/config
 	 */
-	public function get_kind($kind): Client
+	public function get_kind($kind): AsyncClient
 	{
 		return $this->request('/v1/config/' . $kind , self::GET);
 	}

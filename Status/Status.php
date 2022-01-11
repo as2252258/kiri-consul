@@ -4,25 +4,25 @@ namespace Kiri\Consul\Status;
 
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Status extends AbstractConsul
 {
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get(): Client
+	public function get(): AsyncClient
 	{
 		return $this->request('/v1/status/leader', self::GET);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function peers(): Client
+	public function peers(): AsyncClient
 	{
 		return $this->request('/v1/status/peers', self::GET);
 	}

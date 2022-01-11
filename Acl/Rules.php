@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Rules extends AbstractConsul
 {
@@ -11,9 +11,9 @@ class Rules extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function put($data): Client
+	public function put($data): AsyncClient
 	{
 		return $this->request('/v1/acl/binding-rule', self::PUT, $data);
 	}
@@ -21,18 +21,18 @@ class Rules extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get_id($id): Client
+	public function get_id($id): AsyncClient
 	{
 		return $this->request('/v1/acl/binding-rule/' . $id, self::GET);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get(): Client
+	public function get(): AsyncClient
 	{
 		return $this->request('/v1/acl/binding-rules', self::GET);
 	}
@@ -40,9 +40,9 @@ class Rules extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function delete_id($id): Client
+	public function delete_id($id): AsyncClient
 	{
 		return $this->request('/v1/acl/binding-rule/' . $id, self::DELETE);
 	}
@@ -51,9 +51,9 @@ class Rules extends AbstractConsul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function put_id($id, $data): Client
+	public function put_id($id, $data): AsyncClient
 	{
 		return $this->request('/v1/acl/binding-rule/' . $id, self::PUT, $data);
 	}

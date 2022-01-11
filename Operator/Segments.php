@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Segments extends AbstractConsul
 {
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function segment(): Client
+	public function segment(): AsyncClient
 	{
 		return $this->request('/v1/operator/segment', self::GET);
 	}
