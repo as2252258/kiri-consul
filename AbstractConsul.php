@@ -80,6 +80,7 @@ abstract class AbstractConsul
 			self::PUT => $client->put($path),
 			self::DELETE => $client->delete($path),
 		};
+		var_dump($client->getBody());
 		$client->close();
 		return $client;
 	}
