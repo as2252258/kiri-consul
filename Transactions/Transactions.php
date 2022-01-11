@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Transactions;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Transactions extends AbstractConsul
 {
@@ -11,9 +11,9 @@ class Transactions extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function put($data): Client
+	public function put($data): AsyncClient
 	{
 		return $this->request('/v1/txn', self::PUT, $data);
 	}

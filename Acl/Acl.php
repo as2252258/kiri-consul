@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Acl extends AbstractConsul
 {
@@ -11,18 +11,18 @@ class Acl extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function bootstrap($data): Client
+	public function bootstrap($data): AsyncClient
 	{
 		return $this->request('/v1/acl/bootstrap', self::PUT, $data);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function replication(): Client
+	public function replication(): AsyncClient
 	{
 		return $this->request('/v1/acl/replication', self::GET);
 	}
@@ -30,9 +30,9 @@ class Acl extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function rules_translate($data): Client
+	public function rules_translate($data): AsyncClient
 	{
 		return $this->request('/v1/acl/rules/translate', self::POST, $data);
 	}
@@ -40,9 +40,9 @@ class Acl extends AbstractConsul
 
 	/**
 	 * @param $accessor_id
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get_rule_translate($accessor_id): Client
+	public function get_rule_translate($accessor_id): AsyncClient
 	{
 		return $this->request('/v1/acl/rules/translate/' . $accessor_id, self::GET);
 	}
@@ -50,9 +50,9 @@ class Acl extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function login($data): Client
+	public function login($data): AsyncClient
 	{
 		return $this->request('/v1/acl/login', self::POST, $data);
 	}
@@ -60,9 +60,9 @@ class Acl extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function logout($data): Client
+	public function logout($data): AsyncClient
 	{
 		return $this->request('/v1/acl/logout', self::POST, $data);
 	}
@@ -70,9 +70,9 @@ class Acl extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function oidc_auth_url($data): Client
+	public function oidc_auth_url($data): AsyncClient
 	{
 		return $this->request('/v1/acl/oidc/auth-url', self::POST, $data);
 	}
@@ -80,9 +80,9 @@ class Acl extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function oidc_callback($data): Client
+	public function oidc_callback($data): AsyncClient
 	{
 		return $this->request('/v1/acl/oidc/callback', self::POST, $data);
 	}

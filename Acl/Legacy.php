@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Legacy extends AbstractConsul
 {
@@ -11,9 +11,9 @@ class Legacy extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function create($data): Client
+	public function create($data): AsyncClient
 	{
 		return $this->request('/v1/acl/create', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Legacy extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function update($data): Client
+	public function update($data): AsyncClient
 	{
 		return $this->request('/v1/acl/update', self::PUT, $data);
 	}
@@ -31,9 +31,9 @@ class Legacy extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function info($id): Client
+	public function info($id): AsyncClient
 	{
 		return $this->request('/v1/acl/info/' . $id, self::GET);
 	}
@@ -41,18 +41,18 @@ class Legacy extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function clone($id): Client
+	public function clone($id): AsyncClient
 	{
 		return $this->request('/v1/acl/clone/' . $id, self::PUT);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function list(): Client
+	public function list(): AsyncClient
 	{
 		return $this->request('/v1/acl/list', self::GET);
 	}
@@ -60,9 +60,9 @@ class Legacy extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function delete($id): Client
+	public function delete($id): AsyncClient
 	{
 		return $this->request('/v1/acl/destroy/' . $id, self::DELETE);
 	}

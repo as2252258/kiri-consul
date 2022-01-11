@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Query extends AbstractConsul
 {
@@ -10,18 +10,18 @@ class Query extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function post($data): Client
+	public function post($data): AsyncClient
 	{
 		return $this->request('/v1/query', self::POST, $data);
 	}
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get(): Client
+	public function get(): AsyncClient
 	{
 		return $this->request('/v1/query', self::GET);
 	}
@@ -30,9 +30,9 @@ class Query extends AbstractConsul
 	/**
 	 * @param $uuid
 	 * @param $data
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function put($uuid, $data): Client
+	public function put($uuid, $data): AsyncClient
 	{
 		return $this->request('/v1/query/' . $uuid, self::PUT, $data);
 	}
@@ -40,9 +40,9 @@ class Query extends AbstractConsul
 
 	/**
 	 * @param $uuid
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function delete($uuid): Client
+	public function delete($uuid): AsyncClient
 	{
 		return $this->request('/v1/query/' . $uuid, self::DELETE);
 	}
@@ -50,9 +50,9 @@ class Query extends AbstractConsul
 
 	/**
 	 * @param $uuid
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get_uuid($uuid): Client
+	public function get_uuid($uuid): AsyncClient
 	{
 		return $this->request('/v1/query/' . $uuid, self::GET);
 	}
@@ -60,9 +60,9 @@ class Query extends AbstractConsul
 
 	/**
 	 * @param $uuid
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get_uuid_execute($uuid): Client
+	public function get_uuid_execute($uuid): AsyncClient
 	{
 		return $this->request('/v1/query/' . $uuid . '/execute', self::GET);
 	}
@@ -70,9 +70,9 @@ class Query extends AbstractConsul
 
 	/**
 	 * @param $uuid
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function get_uuid_explain($uuid): Client
+	public function get_uuid_explain($uuid): AsyncClient
 	{
 		return $this->request('/v1/query/' . $uuid . '/explain', self::GET);
 	}

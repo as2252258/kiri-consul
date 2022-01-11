@@ -3,16 +3,16 @@
 namespace Kiri\Consul\Operator;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\Client;
+use Kiri\AsyncClient;
 
 class Raft extends AbstractConsul
 {
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function configuration(): Client
+	public function configuration(): AsyncClient
 	{
 		return $this->request('/v1/operator/raft/configuration', self::GET);
 	}
@@ -20,9 +20,9 @@ class Raft extends AbstractConsul
 
 
 	/**
-	 * @return Client
+	 * @return AsyncClient
 	 */
-	public function delete_peer(): Client
+	public function delete_peer(): AsyncClient
 	{
 		return $this->request('/v1/operator/raft/peer', self::DELETE);
 	}
