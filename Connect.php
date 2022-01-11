@@ -2,27 +2,27 @@
 
 namespace Kiri\Consul;
 
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Connect extends AbstractConsul
 {
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function connect_ca_roots(): AsyncClient
+	public function connect_ca_roots(): Client
 	{
 		return $this->request('/v1/connect/ca/roots', self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function get_connect_ca_configuration(): AsyncClient
+	public function get_connect_ca_configuration(): Client
 	{
 		return $this->request('/v1/connect/ca/configuration', self::GET);
 	}
@@ -30,10 +30,10 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function put_connect_ca_configuration($data): AsyncClient
+	public function put_connect_ca_configuration($data): Client
 	{
 		return $this->request('/v1/connect/ca/configuration', self::PUT, $data);
 	}
@@ -41,10 +41,10 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function put_connect_intentions_exact($data): AsyncClient
+	public function put_connect_intentions_exact($data): Client
 	{
 		return $this->request('/v1/connect/intentions/exact', self::PUT, $data);
 	}
@@ -52,10 +52,10 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function delete_connect_intentions_exact($data): AsyncClient
+	public function delete_connect_intentions_exact($data): Client
 	{
 		return $this->request('/v1/connect/intentions/exact', self::DELETE, $data);
 	}
@@ -63,10 +63,10 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function delete_connect_intention($id): AsyncClient
+	public function delete_connect_intention($id): Client
 	{
 		return $this->request('/v1/connect/intentions/exact/' . $id, self::DELETE);
 	}
@@ -74,10 +74,10 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param mixed $data
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function get_connect_intentions_exact(mixed $data = []): AsyncClient
+	public function get_connect_intentions_exact(mixed $data = []): Client
 	{
 		return $this->request('/v1/connect/intentions/exact', self::GET, $data);
 	}
@@ -86,10 +86,10 @@ class Connect extends AbstractConsul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function put_connect_intentions($id, $data): AsyncClient
+	public function put_connect_intentions($id, $data): Client
 	{
 		return $this->request('/v1/connect/intentions/' . $id, self::PUT, $data);
 	}
@@ -97,10 +97,10 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function get_connect_intention($id): AsyncClient
+	public function get_connect_intention($id): Client
 	{
 		return $this->request('/v1/connect/intentions/' . $id, self::GET);
 	}
@@ -108,40 +108,40 @@ class Connect extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function post_connect_intentions($data): AsyncClient
+	public function post_connect_intentions($data): Client
 	{
 		return $this->request('/v1/connect/intentions', self::POST, $data);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function get_connect_intentions(): AsyncClient
+	public function get_connect_intentions(): Client
 	{
 		return $this->request('/v1/connect/intentions', self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function get_connect_intentions_check(): AsyncClient
+	public function get_connect_intentions_check(): Client
 	{
 		return $this->request('/v1/connect/intentions/check', self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/connect/ca
 	 */
-	public function get_connect_intentions_match(): AsyncClient
+	public function get_connect_intentions_match(): Client
 	{
 		return $this->request('/v1/connect/intentions/match', self::GET);
 	}

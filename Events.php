@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Events extends AbstractConsul
 {
@@ -11,18 +11,18 @@ class Events extends AbstractConsul
 	/**
 	 * @param $name
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function fire($name, $data): AsyncClient
+	public function fire($name, $data): Client
 	{
 		return $this->request('/v1/event/fire/' . $name, self::PUT, $data);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function list(): AsyncClient
+	public function list(): Client
 	{
 		return $this->request('/v1/event/list', self::GET);
 	}

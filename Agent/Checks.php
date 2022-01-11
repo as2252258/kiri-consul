@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Agent;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Checks extends AbstractConsul
 {
@@ -11,10 +11,10 @@ class Checks extends AbstractConsul
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function checks(): AsyncClient
+	public function checks(): Client
 	{
 		return $this->request('/v1/agent/checks', self::GET);
 	}
@@ -22,10 +22,10 @@ class Checks extends AbstractConsul
 
 	/**
 	 * @param mixed $data
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function register(mixed $data): AsyncClient
+	public function register(mixed $data): Client
 	{
 		return $this->request('/v1/agent/register', self::PUT, $data);
 	}
@@ -33,10 +33,10 @@ class Checks extends AbstractConsul
 
 	/**
 	 * @param $check_id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function deregister($check_id): AsyncClient
+	public function deregister($check_id): Client
 	{
 		return $this->request('/v1/agent/check/deregister/' . $check_id, self::PUT);
 	}
@@ -44,10 +44,10 @@ class Checks extends AbstractConsul
 
 	/**
 	 * @param $check_id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function pass($check_id): AsyncClient
+	public function pass($check_id): Client
 	{
 		return $this->request('/v1/agent/check/pass/' . $check_id, self::PUT);
 	}
@@ -55,10 +55,10 @@ class Checks extends AbstractConsul
 
 	/**
 	 * @param $check_id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function warn($check_id): AsyncClient
+	public function warn($check_id): Client
 	{
 		return $this->request('/v1/agent/check/warn/' . $check_id, self::PUT);
 	}
@@ -66,10 +66,10 @@ class Checks extends AbstractConsul
 
 	/**
 	 * @param $check_id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function fail($check_id): AsyncClient
+	public function fail($check_id): Client
 	{
 		return $this->request('/v1/agent/check/fail/' . $check_id, self::PUT);
 	}
@@ -77,10 +77,10 @@ class Checks extends AbstractConsul
 
 	/**
 	 * @param $check_id
-	 * @return AsyncClient
+	 * @return Client
 	 * @see https://www.consul.io/api-docs/agent/check
 	 */
-	public function update($check_id): AsyncClient
+	public function update($check_id): Client
 	{
 		return $this->request('/v1/agent/check/update/' . $check_id, self::PUT);
 	}

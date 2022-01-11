@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 
 class Health extends AbstractConsul
@@ -11,9 +11,9 @@ class Health extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function node($node): AsyncClient
+	public function node($node): Client
 	{
 		return $this->request('/v1/health/node/'.$node, self::GET);
 	}
@@ -21,9 +21,9 @@ class Health extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function checks($node): AsyncClient
+	public function checks($node): Client
 	{
 		return $this->request('/v1/health/checks/'.$node, self::GET);
 	}
@@ -31,9 +31,9 @@ class Health extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function service($node): AsyncClient
+	public function service($node): Client
 	{
 		return $this->request('/v1/health/service/'.$node, self::GET);
 	}
@@ -41,9 +41,9 @@ class Health extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function connect($node): AsyncClient
+	public function connect($node): Client
 	{
 		return $this->request('/v1/health/connect/'.$node, self::GET);
 	}
@@ -52,9 +52,9 @@ class Health extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function ingress($node): AsyncClient
+	public function ingress($node): Client
 	{
 		return $this->request('/v1/health/ingress/'.$node, self::GET);
 	}
@@ -62,9 +62,9 @@ class Health extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function state($node): AsyncClient
+	public function state($node): Client
 	{
 		return $this->request('/v1/health/state/'.$node, self::GET);
 	}

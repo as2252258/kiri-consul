@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul\Operator;
 
-use Kiri\AsyncClient;
+use Kiri\Client;
 use Kiri\Consul\AbstractConsul;
 
 class Area extends AbstractConsul
@@ -11,18 +11,18 @@ class Area extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function post_area($data): AsyncClient
+	public function post_area($data): Client
 	{
 		return $this->request('/v1/operator/area', self::POST, $data);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_area(): AsyncClient
+	public function get_area(): Client
 	{
 		return $this->request('/v1/operator/area', self::GET);
 	}
@@ -31,9 +31,9 @@ class Area extends AbstractConsul
 	/**
 	 * @param $node
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_area($node, $data): AsyncClient
+	public function put_area($node, $data): Client
 	{
 		return $this->request('/v1/operator/area/' . $node, self::PUT, $data);
 	}
@@ -41,9 +41,9 @@ class Area extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_area_node($node): AsyncClient
+	public function get_area_node($node): Client
 	{
 		return $this->request('/v1/operator/area/' . $node, self::GET);
 	}
@@ -51,9 +51,9 @@ class Area extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete_area_node($node): AsyncClient
+	public function delete_area_node($node): Client
 	{
 		return $this->request('/v1/operator/area/' . $node, self::DELETE);
 	}
@@ -62,9 +62,9 @@ class Area extends AbstractConsul
 	/**
 	 * @param $node
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function join($node, $data): AsyncClient
+	public function join($node, $data): Client
 	{
 		return $this->request('/v1/operator/area/' . $node . '/join', self::PUT, $data);
 	}
@@ -72,9 +72,9 @@ class Area extends AbstractConsul
 
 	/**
 	 * @param $node
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function members($node): AsyncClient
+	public function members($node): Client
 	{
 		return $this->request('/v1/operator/area/' . $node . '/members', self::GET);
 	}

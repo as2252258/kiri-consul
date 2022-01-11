@@ -2,7 +2,7 @@
 
 namespace Kiri\Consul;
 
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Namespaces extends AbstractConsul
 {
@@ -10,9 +10,9 @@ class Namespaces extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put($data): AsyncClient
+	public function put($data): Client
 	{
 		return $this->request('/v1/namespace', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Namespaces extends AbstractConsul
 	/**
 	 * @param $name
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function update($name, $data): AsyncClient
+	public function update($name, $data): Client
 	{
 		return $this->request('/v1/namespace/' . $name, self::PUT, $data);
 	}
@@ -31,18 +31,18 @@ class Namespaces extends AbstractConsul
 
 	/**
 	 * @param $key
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get($key): AsyncClient
+	public function get($key): Client
 	{
 		return $this->request('/v1/namespace/' . $key, self::GET);
 	}
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function list(): AsyncClient
+	public function list(): Client
 	{
 		return $this->request('/v1/namespaces', self::GET);
 	}
@@ -50,9 +50,9 @@ class Namespaces extends AbstractConsul
 
 	/**
 	 * @param $key
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete($key): AsyncClient
+	public function delete($key): Client
 	{
 		return $this->request('/v1/namespace/' . $key, self::DELETE);
 	}

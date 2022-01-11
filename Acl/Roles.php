@@ -3,7 +3,7 @@
 namespace Kiri\Consul\Acl;
 
 use Kiri\Consul\AbstractConsul;
-use Kiri\AsyncClient;
+use Kiri\Client;
 
 class Roles extends AbstractConsul
 {
@@ -11,9 +11,9 @@ class Roles extends AbstractConsul
 
 	/**
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put($data): AsyncClient
+	public function put($data): Client
 	{
 		return $this->request('/v1/acl/role', self::PUT, $data);
 	}
@@ -21,9 +21,9 @@ class Roles extends AbstractConsul
 
 
 	/**
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get(): AsyncClient
+	public function get(): Client
 	{
 		return $this->request('/v1/acl/roles', self::GET);
 	}
@@ -31,9 +31,9 @@ class Roles extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_id($id): AsyncClient
+	public function get_id($id): Client
 	{
 		return $this->request('/v1/acl/role/' . $id, self::GET);
 	}
@@ -42,9 +42,9 @@ class Roles extends AbstractConsul
 	/**
 	 * @param $id
 	 * @param $data
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function put_id($id, $data): AsyncClient
+	public function put_id($id, $data): Client
 	{
 		return $this->request('/v1/acl/role/' . $id, self::PUT, $data);
 	}
@@ -52,9 +52,9 @@ class Roles extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function delete_id($id): AsyncClient
+	public function delete_id($id): Client
 	{
 		return $this->request('/v1/acl/role/' . $id, self::DELETE);
 	}
@@ -62,9 +62,9 @@ class Roles extends AbstractConsul
 
 	/**
 	 * @param $id
-	 * @return AsyncClient
+	 * @return Client
 	 */
-	public function get_name($id): AsyncClient
+	public function get_name($id): Client
 	{
 		return $this->request('/v1/acl/role/name/' . $id, self::GET);
 	}
