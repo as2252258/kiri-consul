@@ -4,7 +4,7 @@ namespace Kiri\Consul;
 
 
 use Exception;
-use Kiri\Kiri;
+use Kiri;
 
 /**
  * @property Agent\Agent $agent

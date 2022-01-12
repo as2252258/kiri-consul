@@ -8,7 +8,7 @@ use Kiri\Consul\Acl\Policy;
 use Kiri\Consul\Acl\Roles;
 use Kiri\Consul\Acl\Rules;
 use Kiri\Consul\Acl\Tokens;
-use Kiri\Kiri;
+use Kiri;
 
 
 /**
